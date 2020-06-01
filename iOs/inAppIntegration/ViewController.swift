@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate, WKUIDelegate, UIApp
     @IBOutlet weak var urlTextField: UITextField!
     
     // SURTOUT PAS DE PARAMETRE AUTOPLAY DANS L'URL !!!!
-    let urlString:String = "https://www.ultimedia.com/deliver/generic/iframe/mdtk/01310035/src/vpkqzx/zone/1/sound/no/"
+    let urlString:String = "https://www.ultimedia.com/deliver/generic/iframe?mdtk=01499695&width=722&height=406&zone=99&src=ppvsmm&type_player=0&sendstats=0&visible=&tagparam=&tagparamdecoded=&gdprconsentstring=&urlfacebook=https%3A%2F%2Fwww.lavoixdunord.fr%2F700994%2Farticle%2F2020-01-27%2Fpatrick-balkany-reste-en-prison-isabelle-balkany-est-folle-de-rage&ad=1&title=Ils%20se%20baignent%20tous%20les%20jours%20au%20Touquet%2C%20m%C3%AAme%20l%27hiver&endMessage=um_ultimedia_wrapper_ultimediaEndRoll&widgetPrefix=um_ultimedia_wrapper_&plindex=0&fstart=0"
     
     var webView: WKWebView!
     
@@ -115,7 +115,7 @@ class ViewController: UIViewController, UITextFieldDelegate, WKUIDelegate, UIApp
     public func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         guard let url: URL = navigationAction.request.url, let urlScheme = url.scheme else { return nil }
         if (urlScheme == "http" || urlScheme == "https") {
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.open(url)
             return nil
         }
         return nil
